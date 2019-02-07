@@ -184,6 +184,15 @@
 				img.src = doubleImageCanvas.toDataURL("image/png");
 				w.document.body.appendChild(img);
 			});
+			    
+			renderer.render(scene, camera);
+			renderer.domElement.toBlob(function(blob){
+			var a = document.createElement('a');
+			var url = img.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+			a.href = url;
+			a.download = 'canvas.png';
+			a.click();
+			}, 'image/png', 1.0);
 		}
 
 		function loadImages(sources, callback) {
