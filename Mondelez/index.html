@@ -113,7 +113,7 @@
         //////////////////////////////////////////////////////////////////////////////////
         //		add an object in the scene
         //////////////////////////////////////////////////////////////////////////////////
-
+        /*
         // add a torus knot
         var geometry = new THREE.CubeGeometry(1, 1, 1);
         var material = new THREE.MeshNormalMaterial({
@@ -134,6 +134,19 @@
         onRenderFcts.push(function (delta) {
             mesh.rotation.x += Math.PI * delta
         })
+        */
+        // add a model
+        var loader = new THREE.GLTFLoader();
+
+        loader.load(
+            'data/models/Diamond_AR_01.gltf',
+            function (gltf) {
+                scene.add(gltf.scene);
+                gltf.animations;
+                gltf.scene;
+                gltf.asset;
+            }
+        )
 
         //////////////////////////////////////////////////////////////////////////////////
         //		render the whole thing on the page
