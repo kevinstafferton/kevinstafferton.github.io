@@ -17,7 +17,6 @@
         document.body.appendChild(renderer.domElement);
 
         var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
-        camera.position.z = 5;
 
         var scene = new THREE.Scene();
 
@@ -28,7 +27,13 @@
             model.scene.scale.set(0.01, 0.01, 0.01);
         });
 
-        renderer.render(scene, camera);
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
     </script>
 </body>
 </html>
