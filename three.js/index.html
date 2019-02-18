@@ -11,7 +11,7 @@
 <body>
     <script src="js/three.js"></script>
     <script src="js/OrbitControls.js"></script>
-    <script src="js/GLTFLoader.js"></script>
+    <script src="js/GLTF2Loader.js"></script>
     <script>
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -26,7 +26,7 @@
 
         var scene = new THREE.Scene();
 
-        var loader = new THREE.GLTFLoader();
+        var loader = new THREE.GLTF2Loader();
 
         loader.load("models/mech_drone/scene.gltf", function (model) {
             scene.add(model.scene);
