@@ -26,6 +26,7 @@
         loader.load("models/mech_drone/scene.gltf", function (model) {
             scene.add(model.scene);
             model.scene.scale.set(0.01, 0.01, 0.01);
+            console.info("model loaded");
         });
 
         renderer.render(scene, camera);
