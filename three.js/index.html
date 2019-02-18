@@ -16,7 +16,7 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 500);
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 500);
 
         var scene = new THREE.Scene();
 
@@ -24,7 +24,7 @@
 
         loader.load("models/mech_drone/scene.gltf", function (model) {
             scene.add(model.scene);
-            model.scene.scale.set(1000, 1000, 1000);
+            //model.scene.scale.set(0.001, 0.001, 0.001);
         });
 
         camera.position.z = 5;
@@ -33,6 +33,7 @@
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         }
+
         animate();
     </script>
 </body>
