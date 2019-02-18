@@ -10,8 +10,7 @@
 </head>
 <body>
     <script src="js/three.js"></script>
-    <script src="js/OrbitControls.js"></script>
-    <script src="js/GLTF2Loader.js"></script>
+    <script src="js/GLTFLoader.js"></script>
     <script>
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -20,20 +19,17 @@
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 500);
         camera.position.z = 5;
 
-        var controls = new THREE.OrbitControls(camera);
-        controls.target.set(0, 0, 0);
-        controls.update();
-
         var scene = new THREE.Scene();
 
-        var loader = new THREE.GLTF2Loader();
+        var loader = new THREE.GLTFLoader();
+
+        var light = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+        scene.add(light);
 
         loader.load("models/mech_drone/scene.gltf", function (model) {
             scene.add(model.scene);
-            model.scene.scale.set(0.001, 0.001, 0.001);
+            model.scene.scale.set(0.01, 0.01, 0.01);
         });
-
-        camera.position.z = 5;
 
         function animate() {
             requestAnimationFrame(animate);
