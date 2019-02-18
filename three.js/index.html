@@ -22,9 +22,9 @@
 
         var loader = new THREE.GLTF2Loader();
 
-        loader.load("models/Teapot_1cm.gltf", function (model) {
+        loader.load("models/mech_drone/scene.gltf", function (model) {
             scene.add(model.scene);
-            //model.scene.scale.set(0.01, 0.01, 0.01);
+            model.scene.scale.set(0.01, 0.01, 0.01);
         });
 
         camera.position.z = 5;
