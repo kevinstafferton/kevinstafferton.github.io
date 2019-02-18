@@ -10,6 +10,7 @@
 </head>
 <body>
     <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
     <script src="js/GLTFLoader.js"></script>
     <script>
         var renderer = new THREE.WebGLRenderer();
@@ -17,6 +18,11 @@
         document.body.appendChild(renderer.domElement);
 
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 500);
+        camera.position.z = 5;
+
+        var controls = new THREE.OrbitControls(camera);
+        controls.target.set(0, 0, 0);
+        controls.update();
 
         var scene = new THREE.Scene();
 
