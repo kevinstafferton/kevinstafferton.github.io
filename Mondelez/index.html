@@ -29,6 +29,8 @@
 
         // init scene and camera
         var scene = new THREE.Scene();
+        var clock = new THREE.Clock();
+        var mixer;
 
         //////////////////////////////////////////////////////////////////////////////////
         //		Initialize a basic camera
@@ -114,7 +116,8 @@
         //////////////////////////////////////////////////////////////////////////////////
         //		add an object in the scene
         //////////////////////////////////////////////////////////////////////////////////
-        
+
+        /*
         // add a torus knot
         var geometry = new THREE.CubeGeometry(1, 1, 1);
         var material = new THREE.MeshNormalMaterial({
@@ -135,7 +138,7 @@
         onRenderFcts.push(function (delta) {
             mesh.rotation.x += Math.PI * delta
         })
-        
+        */
         
         // add a model
         var loader = new THREE.GLTFLoader();
@@ -144,12 +147,9 @@
             'data/models/mech_drone/scene.gltf',
             function (gltf) {
                 scene.add(gltf.scene);
-                //scene.scale.x = 0.01;
-                //scene.scale.y = 0.01;
-                //scene.scale.z - 0.01;
-                gltf.animation;
-                gltf.scene;
-                gltf.asset;
+                gltf.scene.scale(0.01, 0.01, 0.01);
+                mixer = new THREE.AnimationMixer(gltf.scene);
+                mixer.clipAction(gltf.animations[0]).play();
             }
         );
 
@@ -157,24 +157,14 @@
         //		render the whole thing on the page
         //////////////////////////////////////////////////////////////////////////////////
 
-        // render the scene
-        onRenderFcts.push(function () {
-            renderer.render(scene, camera);
-        })
-
-        // run the rendering loop
-        var lastTimeMsec = null
-        requestAnimationFrame(function animate(nowMsec) {
-            // keep looping
+        function animation() {
             requestAnimationFrame(animate);
-            // measure time
-            lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
-            var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
-            lastTimeMsec = nowMsec
-            // call each update function
-            onRenderFcts.forEach(function (onRenderFct) {
-                onRenderFct(deltaMsec / 1000, nowMsec / 1000)
-            })
-        })
+            var delta = clock.getDelta();
+            mixer.update(delta);
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
     </script>
 </body>
