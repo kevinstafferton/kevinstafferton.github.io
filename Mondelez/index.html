@@ -147,24 +147,38 @@
             'data/models/mech_drone/scene.gltf',
             function (gltf) {
                 scene.add(gltf.scene);
-                gltf.scene.scale.set(0.01, 0.01, 0.01);
+                gltf.scene.scale(0.01, 0.01, 0.01);
                 mixer = new THREE.AnimationMixer(gltf.scene);
                 mixer.clipAction(gltf.animations[0]).play();
             }
         );
 
+        onRenderFcts.push(function (delta) {
+            mixer.update(delta);
+        })
+
         //////////////////////////////////////////////////////////////////////////////////
         //		render the whole thing on the page
         //////////////////////////////////////////////////////////////////////////////////
 
-        function animate() {
-            requestAnimationFrame(animate);
-            var delta = clock.getDelta();
-            mixer.update(delta);
+        // render the scene
+        onRenderFcts.push(function () {
             renderer.render(scene, camera);
-        }
+        })
 
-        animate();
-
+        // run the rendering loop
+        var lastTimeMsec = null
+        requestAnimationFrame(function animate(nowMsec) {
+            // keep looping
+            requestAnimationFrame(animate);
+            // measure time
+            lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
+            var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+            lastTimeMsec = nowMsec
+            // call each update function
+            onRenderFcts.forEach(function (onRenderFct) {
+                onRenderFct(deltaMsec / 1000, nowMsec / 1000)
+            })
+        })
     </script>
 </body>
