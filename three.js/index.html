@@ -22,7 +22,8 @@
 
         var scene = new THREE.Scene();
 
-        var light = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+        var light = new THREE.PointLight(0xffffff, 0.5);
+        light.y = 2;
         scene.add(light);
 
         var loader = new THREE.GLTFLoader();
