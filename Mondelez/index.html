@@ -18,7 +18,7 @@
             alpha: true
         });
         renderer.setClearColor(new THREE.Color('lightgrey'), 0)
-        renderer.setSize(320, 240);
+        renderer.setSize(640, 480);
         renderer.domElement.style.position = 'absolute'
         renderer.domElement.style.top = '0px'
         renderer.domElement.style.left = '0px'
@@ -176,18 +176,27 @@
         })
 
         // run the rendering loop
-        var lastTimeMsec = null
-        requestAnimationFrame(function animate(nowMsec) {
+        //var lastTimeMsec = null
+        //requestAnimationFrame(function animate(nowMsec) {
             // keep looping
-            requestAnimationFrame(animate);
+            //requestAnimationFrame(animate);
             // measure time
-            lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
-            var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
-            lastTimeMsec = nowMsec
+            //lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
+            //var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+            //lastTimeMsec = nowMsec
             // call each update function
+            //onRenderFcts.forEach(function (onRenderFct) {
+                //onRenderFct(deltaMsec / 1000, nowMsec / 1000)
+            //})
+
+        function animate() {
+            requestAnimationFrame(animate);
+            var delta = clock.getDelta();
             onRenderFcts.forEach(function (onRenderFct) {
-                onRenderFct(deltaMsec / 1000, nowMsec / 1000)
+                onRenderFct(delta);
             })
-        })
+        }
+
+        animate();
     </script>
 </body>
