@@ -147,7 +147,7 @@
             'data/models/mech_drone/scene.gltf',
             function (gltf) {
                 scene.add(gltf.scene);
-                gltf.scene.scale(0.01, 0.01, 0.01);
+                gltf.scene.scale.set(0.01, 0.01, 0.01);
                 mixer = new THREE.AnimationMixer(gltf.scene);
                 mixer.clipAction(gltf.animations[0]).play();
             }
