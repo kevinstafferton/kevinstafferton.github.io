@@ -34,7 +34,9 @@
         loader.load("models/mech_drone/scene.gltf", function (model) {
             scene.add(model.scene);
             model.scene.scale.set(0.01, 0.01, 0.01);
-            model.animations;
+
+            var mixer = new THREE.AnmimationMixer(model.scene);
+            mixer.clipAction(model.animations[0]).play();
         });
 
         function animate() {
