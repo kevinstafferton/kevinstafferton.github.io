@@ -155,7 +155,7 @@
             function (gltf) {
                 scene.add(gltf.scene);
                 gltf.scene.scale.set(0.01, 0.01, 0.01);
-                gltf.scene.rotation.y = Math.PI / 2;
+                gltf.scene.rotation.x = Math.PI / 2;
                 mixer = new THREE.AnimationMixer(gltf.scene);
                 mixer.clipAction(gltf.animations[0]).play();
             }
