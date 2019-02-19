@@ -41,6 +41,8 @@
 
         function animate() {
             requestAnimationFrame(animate);
+            var delta = clock.getDelta();
+            mixer.update(delta);
             renderer.render(scene, camera);
         }
 
