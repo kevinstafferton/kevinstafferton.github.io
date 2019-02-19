@@ -35,7 +35,7 @@
             scene.add(model.scene);
             model.scene.scale.set(0.01, 0.01, 0.01);
 
-            var mixer = new THREE.AnmimationMixer(model.scene);
+            var mixer = new THREE.AnimationMixer(model.scene);
             mixer.clipAction(model.animations[0]).play();
         });
 
