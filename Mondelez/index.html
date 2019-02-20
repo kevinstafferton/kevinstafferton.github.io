@@ -177,7 +177,7 @@
 
         // start animation
         animate();
-
+        /*
         function takeScreenshot() {
             var w = window.open('', '');
             w.document.title = "Screenshot";
@@ -206,7 +206,7 @@
                 a.click();
             }, 'image/png', 1.0);
         }
-
+        */
         function downloadScreenshot() {
             var firstImage = new Image();
             var secondImage = new Image();
@@ -228,9 +228,6 @@
             loadImages(sources, function (images) {
                 context.drawImage(images.secondImage, 0, 0);
                 context.drawImage(images.firstImage, 0, 0);
-
-                renderer.render(scene, camera);
-
                 finalCanvas.toBlob(function (blob) {
                     var url = URL.createObjectURL(blob);
                     var a = document.createElement('a');
