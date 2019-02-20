@@ -182,7 +182,7 @@
             w.document.title = "Screenshot";
             var img = new Image();
             var secondImg = new Image();
-            //renderer.render(scene, camera);
+            renderer.render(scene, camera);
             var doubleImageCanvas = document.getElementById('doubleImage');
             var context = doubleImageCanvas.getContext('2d');
             var sources = {
@@ -197,7 +197,7 @@
                 w.document.body.appendChild(img);
             });
 
-            renderer.render(scene, camera);
+            //renderer.render(scene, camera);
             renderer.domElement.toBlob(function (blob) {
                 var a = document.createElement('a');
                 var url = img.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
