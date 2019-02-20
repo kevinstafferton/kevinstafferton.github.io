@@ -219,15 +219,12 @@
             secondImage.src = arToolkitContext.arController.canvas.toDataURL("image/png");
             context.drawImage(secondImage, 0, 0);
 
-            renderer.render(scene, camera);
-
             finalCanvas.toBlob(function (blob) {
-                var a = document.createElement('a');
                 var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
                 a.href = url;
                 a.download = 'canvas.png';
                 a.click();
-                URL.revokeObjectURL(url);
             });
 
         }
