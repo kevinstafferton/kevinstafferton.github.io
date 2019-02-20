@@ -228,6 +228,9 @@
             loadImages(sources, function (images) {
                 context.drawImage(images.secondImage, 0, 0);
                 context.drawImage(images.firstImage, 0, 0);
+
+                renderer.render(scene, camera);
+
                 finalCanvas.toBlob(function (blob) {
                     var url = URL.createObjectURL(blob);
                     var a = document.createElement('a');
