@@ -152,7 +152,8 @@
 
         // update animation on every frame
         onRenderFcts.push(function (delta) {
-            mixer.update(delta);
+            if (mixer != undefined)
+                mixer.update(delta);
         })
 
         //////////////////////////////////////////////////////////////////////////////////
@@ -176,7 +177,7 @@
         // start animation
         animate();
     </script>
-    <div style="width:100%;height:50px;background-color:orange">
+    <div style="width:100%;height:50px;position:fixed;bottom:0px;background-color:orange">
 
     </div>
 </body>
