@@ -16,7 +16,8 @@
         // init renderer
         var renderer = new THREE.WebGLRenderer({
             antialias: true,
-            alpha: true
+            alpha: true,
+            preserveDrawingbuffer: true
         });
         renderer.setClearColor(new THREE.Color('lightgrey'), 0)
         renderer.setSize(640, 480);
