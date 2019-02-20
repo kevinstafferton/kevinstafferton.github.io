@@ -7,6 +7,7 @@
 <script src="js/ar.min.js"></script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <canvas width='640' height='480' style='visibility:visible;' id='doubleImage'></canvas>
     <script>
         //////////////////////////////////////////////////////////////////////////////////
         // Init
@@ -225,7 +226,7 @@
             //context.drawImage(secondImage, 0, 0);
 
             loadImages(sources, function (images) {
-                //context.drawImage(images.secondImage, 0, 0);
+                context.drawImage(images.secondImage, 0, 0);
                 context.drawImage(images.firstImage, 0, 0);
                 finalCanvas.toBlob(function (blob) {
                     var url = URL.createObjectURL(blob);
@@ -260,7 +261,6 @@
             }
         }
     </script>
-    <canvas width='640' height='480' style='visibility:visible;' id='doubleImage'></canvas>
     <div style="width:100%;height:50px;position:fixed;bottom:0px;background-color:orange;text-align:center;">
         <div style="font-size:large;display:inline-block; top:50%" onclick="downloadScreenshot()">
             <p>SNAP!</p>
