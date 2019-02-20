@@ -211,6 +211,11 @@
             var secondImage = new Image();
             var finalCanvas = document.getElementById("doubleImage");
             var context = finalCanvas.getContext("2d");
+            var sources = {
+                firstImage: renderer.domElement.toDataURL("image/png"),
+                secondImage: arToolkitContext.arController.canvas.toDataURL("image/png")
+            };
+
 
             renderer.render(scene, camera);
 
