@@ -225,7 +225,7 @@
             //context.drawImage(secondImage, 0, 0);
 
             loadImages(sources, function (images) {
-                context.drawImage(images.secondImage, 0, 0);
+                //context.drawImage(images.secondImage, 0, 0);
                 context.drawImage(images.firstImage, 0, 0);
                 finalCanvas.toBlob(function (blob) {
                     var url = URL.createObjectURL(blob);
