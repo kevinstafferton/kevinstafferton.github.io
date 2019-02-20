@@ -214,7 +214,7 @@
             var context = finalCanvas.getContext("2d");
             firstImage.src = renderer.domElement.toDataURL("image/png");
             context.drawImage(firstImage, 0, 0);
-            secondImage.src = ArToolkitContext.arController.canvas.toDataURL("image/png");
+            secondImage.src = arToolkitContext.arController.canvas.toDataURL("image/png");
             context.drawImage(secondImage, 0, 0);
 
         }
