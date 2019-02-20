@@ -227,17 +227,17 @@
             loadImages(sources, function (images) {
                 context.drawImage(images.secondImage, 0, 0);
                 context.drawImage(images.firstImage, 0, 0);
-                img.src = finalCanvas.toDataURL("image/png");
-                w.document.body.appendChild(img);
+                finalCanvas.toBlob(function (blob) {
+                    var url = URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'canvas.png';
+                    a.click();
+                });
+                //img.src = finalCanvas.toDataURL("image/png");
+                //w.document.body.appendChild(img);
             });
 
-            finalCanvas.toBlob(function (blob) {
-                var url = URL.createObjectURL(blob);
-                var a = document.createElement('a');
-                a.href = url;
-                a.download = 'canvas.png';
-                a.click();
-            });
 
         }
 
