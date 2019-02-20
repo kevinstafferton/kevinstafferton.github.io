@@ -210,6 +210,9 @@
         function downloadScreenshot() {
             var firstImage = new Image();
             var secondImage = new Image();
+
+            renderer.render(scene, camera);
+
             var finalCanvas = document.getElementById("doubleImage");
             var context = finalCanvas.getContext("2d");
             var sources = {
@@ -217,8 +220,6 @@
                 secondImage: arToolkitContext.arController.canvas.toDataURL("image/png")
             };
 
-
-            renderer.render(scene, camera);
 
             //firstImage.src = renderer.domElement.toDataURL("image/png");
             //context.drawImage(firstImage, 0, 0);
