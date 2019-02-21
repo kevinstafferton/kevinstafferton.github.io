@@ -221,11 +221,6 @@
             };
 
 
-            //firstImage.src = renderer.domElement.toDataURL("image/png");
-            //context.drawImage(firstImage, 0, 0);
-            //secondImage.src = arToolkitContext.arController.canvas.toDataURL("image/png");
-            //context.drawImage(secondImage, 0, 0);
-
             loadImages(sources, function (images) {
                 context.drawImage(images.secondImage, 0, 0);
                 context.drawImage(images.firstImage, 0, 0);
@@ -236,8 +231,6 @@
                     a.download = 'canvas.png';
                     a.click();
                 });
-                //img.src = finalCanvas.toDataURL("image/png");
-                //w.document.body.appendChild(img);
             });
 
 
