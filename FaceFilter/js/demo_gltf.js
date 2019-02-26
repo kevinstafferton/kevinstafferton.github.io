@@ -174,7 +174,7 @@ function main(){
             'maxHeight': 1920   //max video height in pixels
         },
         canvasId: 'jeeFaceFilterCanvas',
-        NNCpath: 'js/libs/', //root of NNC.json file
+        NNCpath: './js/libs/', //root of NNC.json file
         callbackReady: function(errCode, spec){
             if (errCode){
                 console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
