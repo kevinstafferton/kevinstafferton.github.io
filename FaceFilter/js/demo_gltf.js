@@ -226,3 +226,13 @@ function main(){
     }); //end JEEFACEFILTERAPI.init call
 } //end main()
 
+function downloadScreenshot() {
+    CANVASELEMENt.toBlob(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'canvas.png';
+        a.click();
+    });
+}
+
