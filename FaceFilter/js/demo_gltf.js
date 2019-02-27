@@ -2,8 +2,7 @@
 
 //SETTINGS of this demo :
 var SETTINGS={
-    //gltfModelURL: 'DamagedHelmet/glTF/DamagedHelmet.gltf',
-    gltfModelURL: 'AdamHead/adamHead.gltf',
+    gltfModelURL: 'DamagedHelmet/glTF/DamagedHelmet.gltf',
     cubeMapURL: 'Bridge2/',
     rotationOffsetX: 0, //negative -> look upper. in radians
     cameraFOV: 40,      //in degrees, 3D camera FOV
