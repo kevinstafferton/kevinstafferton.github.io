@@ -227,7 +227,7 @@ function main(){
 } //end main()
 
 function downloadScreenshot() {
-    CANVASELEMENt.toBlob(function (blob) {
+    CANVASELEMENT.toBlob(function (blob) {
         var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
         a.href = url;
